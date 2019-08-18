@@ -6,7 +6,7 @@ categories: algorithm
 tags: SWExpertAcademy
 ---
 
-## 2007. 간단한 369게임
+## 2007. 패턴 마디의 길이
 ---
 > 삼성 SW Expert Academy 알고리즘 문제풀기
 

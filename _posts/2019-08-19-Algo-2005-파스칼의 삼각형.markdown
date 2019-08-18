@@ -1,12 +1,12 @@
 ---
 layout: post
-title:  "[알고리즘] 패턴 마디의 길이"
-subtitle:   "369 게임을 프로그램으로 제작하라"
+title:  "[알고리즘] 파스칼의 삼각형"
+subtitle:   "파스칼의 삼각형 만드는 프로그램"
 categories: algorithm
 tags: SWExpertAcademy
 ---
 
-## 2007. 간단한 369게임
+## 2005. 파스칼의 삼각형
 ---
 > 삼성 SW Expert Academy 알고리즘 문제풀기
 
