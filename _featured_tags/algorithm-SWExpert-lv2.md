@@ -3,6 +3,6 @@ layout: tag-blog
 title: LV-2
 slug: lv-2
 category: SWExpertAcademy
-menu: true
+menu: false
 order: 1
 ---

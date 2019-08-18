@@ -1,9 +1,9 @@
 ---
 layout: tag-blog
 title: SWExpertAcademy
-slug: SWExpertAcademy
+slug: SWEA
 category: algorithm
-menu: true
+menu: false
 submenu: true
 order: 1
 ---
