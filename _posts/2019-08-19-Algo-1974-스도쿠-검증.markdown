@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[알고리즘] 스도쿠 컴증"
+title:  "[알고리즘] 스도쿠 검증"
 subtitle:   "스도쿠를 검증하는 프로그램을 만들어라"
 categories: algorithm
 tags: SWExpertAcademy

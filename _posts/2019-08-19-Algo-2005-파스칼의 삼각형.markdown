@@ -1,0 +1,117 @@
+---
+layout: post
+title:  "[알고리즘] 패턴 마디의 길이"
+subtitle:   "369 게임을 프로그램으로 제작하라"
+categories: algorithm
+tags: SWExpertAcademy
+---
+
+## 2007. 간단한 369게임
+---
+> 삼성 SW Expert Academy 알고리즘 문제풀기
+
+크기가 N인 파스칼의 삼각형을 만들어야 한다.
+
+파스칼의 삼각형이란 아래와 같은 규칙을 따른다.
+
+1. 첫 번째 줄은 항상 숫자 1이다.
+
+2. 두 번째 줄부터 각 숫자들은 자신의 왼쪽과 오른쪽 위의 숫자의 합으로 구성된다.
+
+N을 입력 받아 크기 N인 파스칼의 삼각형을 출력하는 프로그램을 작성하시오.
+
+
+[제약 사항]
+
+파스칼의 삼각형의 크기 N은 1 이상 10 이하의 정수이다. (1 ≤ N ≤ 10)
+
+
+[입력]
+
+가장 첫 줄에는 테스트 케이스의 개수 T가 주어지고, 그 아래로 각 테스트 케이스가 주어진다.
+
+각 테스트 케이스에는 N이 주어진다.
+
+
+[출력]
+
+각 줄은 '#t'로 시작하고, 다음 줄부터 파스칼의 삼각형을 출력한다.
+
+삼각형 각 줄의 처음 숫자가 나오기 전까지의 빈 칸은 생략하고 숫자들 사이에는 한 칸의 빈칸을 출력한다.
+
+(t는 테스트 케이스의 번호를 의미하며 1부터 시작한다.)
+
+
+```java
+package lv2;
+
+import java.util.Scanner;
+
+/* 19.08.19
+ * SW Expert Academy
+ * [2005] 파스칼의 삼각형
+ * 좌측상단, 우측상단 합 출력되는 삼각형
+ */
+
+public class N2005 {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int test = scan.nextInt();
+		for (int test_case = 1; test_case <= test; test_case++) { // test case 만큼 Loop
+			int line = scan.nextInt();
+			System.out.println("#" + test_case);
+			int size = 0;
+			// 사이즈 정해주기
+			for (int i=1; i<=line; i++) {
+				size += i;
+			}
+			int [] paskal = new int[size];
+			int count = 0;
+			// line 시작 자리 1로 초기화
+			for (int num_one = 0; num_one<paskal.length;) {
+				count++;
+				paskal[num_one] = 1;
+				num_one += count;
+			}
+			// line 끝 자리 1로 초기화
+			count = 2;
+			for (int num_one = 2; num_one<paskal.length;) {
+				count++;
+				paskal[num_one] = 1;
+				num_one += count;
+			}
+			count = 3;
+			int new_count = 3;
+			// 가운데 채우기
+			for (int num_one = 4; num_one<paskal.length;) {
+				int k = count;
+				do{
+					paskal[num_one] = paskal[num_one-new_count] + paskal[num_one-new_count+1];
+					num_one++;
+					k--;
+				}while(!(k == 2));
+				num_one = num_one+2;
+				if (num_one >= paskal.length) {
+					break;
+				}
+				paskal[num_one] = paskal[num_one-new_count] + paskal[num_one-new_count+1];
+				new_count++;
+				count++;
+			}
+			int line_count = 1;
+			int num_count = 1;
+			// 파스칼 삼각형 프린트 찍기
+			for (int i = 0; i<paskal.length; i++) {
+				System.out.print(paskal[i] + " ");
+				if (line_count == num_count) {
+					System.out.println();
+					line_count++;
+					num_count = 0;
+				}
+				num_count++;
+			}
+		}
+		scan.close();
+	}
+}
+```
