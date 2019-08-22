@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[알고리즘]어디에 단어가 들어갈 수 있을까"
+title:  "[알고리즘] 어디에 단어가 들어갈 수 있을까"
 subtitle:   "단어가 들어갈 수 있는 자리의 수를 출력하는 프로그램"
 categories: algorithm
 tags: SWexpertacademy algorithm
