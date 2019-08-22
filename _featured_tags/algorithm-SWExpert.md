@@ -3,7 +3,7 @@ layout: tag-blog
 title: SWExpertAcademy
 slug: SWEA
 category: algorithm
-menu: false
+menu: true
 submenu: true
 order: 1
 ---
