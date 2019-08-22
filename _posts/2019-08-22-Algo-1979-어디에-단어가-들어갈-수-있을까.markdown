@@ -1,0 +1,132 @@
+---
+layout: post
+title:  "[알고리즘] 어디에 단어가 들어갈 수 있을까"
+subtitle:   "단어가 들어갈 수 있는 자리의 수를 출력하는 프로그램"
+categories: algorithm
+tags: SWExpertAcademy
+---
+
+## 1979. 어디에 단어가 들어갈 수 있을까
+
+> 삼성 SW Expert Academy 알고리즘 문제풀기 [D2]    
+> (14:35~15:15) 40`m
+
+N X N 크기의 단어 퍼즐을 만들려고 한다. 입력으로 단어 퍼즐의 모양이 주어진다.
+
+주어진 퍼즐 모양에서 특정 길이 K를 갖는 단어가 들어갈 수 있는 자리의 수를 출력하는 프로그램을 작성하라.
+
+[예제]
+
+N = 5, K = 3 이고, 퍼즐의 모양이 아래 그림과 같이 주어졌을 때
+ 
+![img](../assets/img/algo/1979(1).png)
+
+길이가 3 인 단어가 들어갈 수 있는 자리는 2 곳(가로 1번, 가로 4번)이 된다.
+ 
+![img](../assets/img/algo/1979(2).png)
+
+**[제약 사항]**
+
+1. N은 5 이상 15 이하의 정수이다. (5 ≤ N ≤ 15)
+
+2. K는 2 이상 N 이하의 정수이다. (2 ≤ K ≤ N)
+
+
+**[입력]**
+
+입력은 첫 줄에 총 테스트 케이스의 개수 T가 온다.
+
+다음 줄부터 각 테스트 케이스가 주어진다.
+
+테스트 케이스의 첫 번째 줄에는 단어 퍼즐의 가로, 세로 길이 N 과, 단어의 길이 K 가 주어진다.
+
+테스트 케이스의 두 번째 줄부터 퍼즐의 모양이 2차원 정보로 주어진다.
+
+퍼즐의 각 셀 중, 흰색 부분은 1, 검은색 부분은 0 으로 주어진다.
+
+
+**[출력]**
+
+테스트 케이스 t에 대한 결과는 “#t”을 찍고, 한 칸 띄고, 정답을 출력한다.
+
+(t는 테스트 케이스의 번호를 의미하며 1부터 시작한다.)
+
+
+```
+> 입력
+10
+5 3
+0 0 1 1 1
+1 1 1 1 0
+0 0 1 0 0
+0 1 1 1 1
+1 1 1 0 1
+5 3
+1 0 0 1 0
+1 1 0 1 1
+1 0 1 1 1
+0 1 1 0 1
+0 1 1 1 0
+...
+
+
+> 출력
+#1 2
+#2 6
+...
+```
+
+```java
+import java.util.Scanner;
+/*
+ * SW Expert Academy
+ * [1979] 어디에 단어가 들어갈 수 있을까
+ * NxN 크기의 단어퍼즐 -> K길이의 단어가 딱 맞게 들어가는 경우의 수 출력
+ */
+public class Solution {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int test = scan.nextInt();				// test case 수 입력
+		for (int j = 0; j < test; j++) { // test case 만큼 Loop
+			int array_size = scan.nextInt();		// Array Size 입력
+			int find_word = scan.nextInt(); 		// 찾아야 하는 단어의 길이
+			int [][] word_puzzle = new int[array_size][array_size];	 // word puzzle 2차원 배열 선언
+			int line_count = 0;						// k길이 단어가 들어갈 수 있는 경우
+			int solution = 0;						// line_count의 합
+			for (int k = 0; k < word_puzzle.length; k++) { // word puzzle 세로길이 만큼 입력
+				for (int i = 0; i < word_puzzle[k].length; i++) { // word puzzle 가로줄 입력
+					word_puzzle[k][i] = scan.nextInt();
+					if (word_puzzle[k][i] == 1) {
+						line_count++;
+					}
+					// 가로줄에 들어갈 수 있는 경우
+					if (word_puzzle[k][i] == 0 || i == (word_puzzle[k].length-1)) {
+						if(line_count == find_word) {
+							solution++;
+						}
+						line_count = 0;
+					}
+				}
+			}
+			// 세로줄에 들어갈 수 있는 경우
+			for (int k = 0; k < word_puzzle.length; k++) {
+				for (int i = 0; i < word_puzzle.length; i++) {
+					if (word_puzzle[i][k] == 1) {
+						line_count++;
+					}
+					if (word_puzzle[i][k] == 0 || i == (word_puzzle[i].length-1)) {
+						if(line_count == find_word) {
+							solution++;
+						}
+						line_count = 0;
+					}
+				}
+				line_count = 0;
+			}
+			System.out.println("#"+ (j+1) + " " + solution);
+		}
+	}
+
+}
+
+```
