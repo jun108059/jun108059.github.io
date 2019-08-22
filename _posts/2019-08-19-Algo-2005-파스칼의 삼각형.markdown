@@ -26,7 +26,7 @@ Simulation 문제의 경우에는 조건에 맞춰서 빠르게 풀어나가는�
 
 N이 4일 경우,
  
-![img](../assets/img/algo/2005(1).png)
+![img](../assets/img/algo/2005(1).PNG)
 
 N을 입력 받아 크기 N인 파스칼의 삼각형을 출력하는 프로그램을 작성하시오.
 
