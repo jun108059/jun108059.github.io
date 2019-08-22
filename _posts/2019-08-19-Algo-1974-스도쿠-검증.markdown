@@ -7,10 +7,57 @@ tags: SWExpertAcademy
 ---
 
 ## 1974. 스도쿠 검증
----
+
 > 삼성 SW Expert Academy 알고리즘 문제풀기
 
-스도쿠는 숫자퍼즐로, 가로 9칸 세로 9칸으로 이루어져 있는 표에 1부터 9까지의 숫자를 채워넣는 퍼즐이다.
+스도쿠는 숫자퍼즐로, 가로 9칸 세로 9칸으로 이루어져 있는 표에 1 부터 9 까지의 숫자를 채워넣는 퍼즐이다.
+
+![img](../assets/img/algo/1974(1).png)
+
+같은 줄에 1 에서 9 까지의 숫자를 한번씩만 넣고, 3 x 3 크기의 작은 격자 또한, 1 에서 9 까지의 숫자가 겹치지 않아야 한다.
+
+![img](../assets/img/algo/1974(2).png)
+ 
+입력으로 9 X 9 크기의 스도쿠 퍼즐의 숫자들이 주어졌을 때, 위와 같이 겹치는 숫자가 없을 경우, 1을 정답으로 출력하고 그렇지 않을 경우 0 을 출력한다.
+
+**[제약 사항]**
+
+1. 퍼즐은 모두 숫자로 채워진 상태로 주어진다.
+
+2. 입력으로 주어지는 퍼즐의 모든 숫자는 1 이상 9 이하의 정수이다.
+
+
+**[입력]**
+
+입력은 첫 줄에 총 테스트 케이스의 개수 T가 온다.
+
+다음 줄부터 각 테스트 케이스가 주어진다.
+
+테스트 케이스는 9 x 9 크기의 퍼즐의 데이터이다.
+
+
+**[출력]**
+
+테스트 케이스 t에 대한 결과는 “#t”을 찍고, 한 칸 띄고, 정답을 출력한다.
+
+(t는 테스트 케이스의 번호를 의미하며 1부터 시작한다.)
+
+```
+> 입력
+10
+7 3 6 4 2 9 5 8 1
+5 8 9 1 6 7 3 2 4
+2 1 4 5 8 3 6 9 7
+8 4 7 9 3 6 1 5 2
+1 5 3 8 4 2 9 7 6
+9 6 2 7 5 1 8 4 3
+4 2 1 3 9 8 7 6 5
+3 9 5 6 7 4 2 1 8
+6 7 8 2 1 5 4 3 9
+
+> 출력
+#1 1
+```
 
 ```java
 import java.util.Scanner;
@@ -22,100 +69,91 @@ import java.util.Scanner;
  */
 
 public class Solution {
-	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
-		int test = scan.nextInt();				// test case 수 입력
-		for (int test_case = 1; test_case < test+1; test_case++) { // test case 만큼 Loop
-			int [][] sudozu = new int[9][9];
-			int[] sum_cal = new int[9];
-			int[] squal = new int[9];
-			int sum_line = 0;
-			int tf = 0;
-			for (int i = 0; i < sudozu[0].length; i++) {
-//				if(tf == 1) {
-//					break;
-//				}
-				for(int j = 0; j < sudozu.length; j++) {
-					sudozu[i][j] = scan.nextInt();
-					sum_line += sudozu[i][j];
-					if(j == 8 && tf != 1) {
-						// i가 9의 배수가 될 때 = 가로줄 검사
-						if(sum_line%45 != 0) {
-							System.out.println("#" + test_case + " 0");
-							tf = 1;
-							break;
-						}
-					}
-					// 세로줄 검사
-					switch(j) {
-					case 0:
-						sum_cal[0] += sudozu[i][j];
-						break;
-					case 1:
-						sum_cal[1] += sudozu[i][j];
-						break;
-					case 2:
-						sum_cal[2] += sudozu[i][j];
-						break;
-					case 3:
-						sum_cal[3] += sudozu[i][j];
-						break;
-					case 4:
-						sum_cal[4] += sudozu[i][j];
-						break;
-					case 5:
-						sum_cal[5] += sudozu[i][j];
-						break;
-					case 6:
-						sum_cal[6] += sudozu[i][j];
-						break;
-					case 7:
-						sum_cal[7] += sudozu[i][j];
-						break;
-					case 8:
-						sum_cal[8] += sudozu[i][j];
-						break;
-					}
-					
-					// 3x3 박스 처리
-					if (i<3) {
-						if(j<3) squal[0] += sudozu[i][j];
-						else if(3<=j && j<6) squal[1] += sudozu[i][j];
-						else if(6<=j && j<9) squal[2] += sudozu[i][j];
-					}
-					else if (3<=i && i<6) {
-						if(j<3) squal[3] += sudozu[i][j];
-						else if(3<=j && j<6) squal[4] += sudozu[i][j];
-						else if(6<=j && j<9) squal[5] += sudozu[i][j];
-					}
-					else{
-						if(j<3) squal[6] += sudozu[i][j];
-						else if(3<=j && j<6) squal[7] += sudozu[i][j];
-						else if(6<=j && j<9) squal[8] += sudozu[i][j];
-					}
-
-				}
-				
-					
-			}
-			for (int k=0; k<sum_cal.length; k++) {
-				if (sum_cal[k]%45 != 0 &&  tf != 1) {
-					System.out.println("#" + test_case + " 0");
-					tf = 1;
-					break;
-				}
-				if (squal[k] != 45 &&  tf != 1) {
-					System.out.println("#" + test_case + " 0");
-					tf = 1;
-					break;
-				}
-			}
-			
-			if (tf == 0) {
-				System.out.println("#" + test_case + " 1");
-			}
-		}
-	}
+   public static void main(String[] args) {
+      Scanner scan = new Scanner(System.in);
+      int test = scan.nextInt();  // test case 수 입력
+      for (int test_case = 1; test_case < test+1; test_case++) { // test case 만큼 Loop
+         int [][] sudozu = new int[9][9];
+	 int[] sum_cal = new int[9];
+	 int[] squal = new int[9];
+	 int sum_line = 0;
+	 int tf = 0;
+	 for (int i = 0; i < sudozu[0].length; i++) {
+            for(int j = 0; j < sudozu.length; j++) {
+	       sudozu[i][j] = scan.nextInt();
+	       sum_line += sudozu[i][j];
+	       if(j == 8 && tf != 1) {
+	          // i가 9의 배수가 될 때 = 가로줄 검사
+		  if(sum_line%45 != 0) {
+		     System.out.println("#" + test_case + " 0");
+		     tf = 1;
+		     break;
+                  }
+	       }
+	       // 세로줄 검사
+	       switch(j) {
+	          case 0:
+	             sum_cal[0] += sudozu[i][j];
+		     break;
+	          case 1:
+   	             sum_cal[1] += sudozu[i][j];
+   		     break;
+	          case 2:
+	             sum_cal[2] += sudozu[i][j];
+		     break;
+	          case 3:
+		     sum_cal[3] += sudozu[i][j];
+		     break;
+	          case 4:
+		     sum_cal[4] += sudozu[i][j];
+		     break;
+	          case 5:
+		     sum_cal[5] += sudozu[i][j];
+		     break;
+	          case 6:
+		     sum_cal[6] += sudozu[i][j];
+		     break;
+	          case 7:
+		     sum_cal[7] += sudozu[i][j];
+		     break;
+	          case 8:
+	             sum_cal[8] += sudozu[i][j];
+		     break;
+	       }
+	       // 3x3 박스 처리
+	       if (i<3) {
+	          if(j<3) squal[0] += sudozu[i][j];
+	          else if(3<=j && j<6) squal[1] += sudozu[i][j];
+	          else if(6<=j && j<9) squal[2] += sudozu[i][j];
+	       }
+	       else if (3<=i && i<6) {
+	          if(j<3) squal[3] += sudozu[i][j];
+	          else if(3<=j && j<6) squal[4] += sudozu[i][j];
+	          else if(6<=j && j<9) squal[5] += sudozu[i][j];
+	       }
+	       else{
+	          if(j<3) squal[6] += sudozu[i][j];
+	          else if(3<=j && j<6) squal[7] += sudozu[i][j];
+	          else if(6<=j && j<9) squal[8] += sudozu[i][j];
+	       }
+	    }
+	 }
+	 for (int k=0; k<sum_cal.length; k++) {
+	    if (sum_cal[k]%45 != 0 &&  tf != 1) {
+	       System.out.println("#" + test_case + " 0");
+	       tf = 1;
+	       break;
+	    }
+	    if (squal[k] != 45 &&  tf != 1) {
+	       System.out.println("#" + test_case + " 0");
+	       tf = 1;
+	       break;
+	    }
+	 }
+	 if (tf == 0) {
+            System.out.println("#" + test_case + " 1");
+	 }
+      }
+   }
 }
-
 ```
