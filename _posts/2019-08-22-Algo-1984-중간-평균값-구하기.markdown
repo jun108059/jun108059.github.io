@@ -3,8 +3,9 @@ layout: post
 title:  "[알고리즘] 중간 평균값 구하기"
 subtitle:   "정렬해서 최대, 최소 수를 제외한 나머지의 평균값을 출력"
 categories: algorithm
-tags: SWExpertAcademy
+tags: SWexpertacademy algorithm
 ---
+![SWEA](https://img.shields.io/badge/SWEA-D2-blue?logo=Java)
 
 ## 1984. 중간 평균값 구하기
 
