@@ -10,6 +10,12 @@ tags: SWExpertAcademy
 ---
 > 삼성 SW Expert Academy 알고리즘 문제풀기
 
+### 👨‍💻 설계
+```
+Simulation 문제의 경우에는 조건에 맞춰서 빠르게 풀어나가는게 중요하지만
+연습이기 때문에 모든 경우에 성립하도록 설계하였다.
+```
+
 크기가 N인 파스칼의 삼각형을 만들어야 한다.
 
 파스칼의 삼각형이란 아래와 같은 규칙을 따른다.
@@ -18,22 +24,26 @@ tags: SWExpertAcademy
 
 2. 두 번째 줄부터 각 숫자들은 자신의 왼쪽과 오른쪽 위의 숫자의 합으로 구성된다.
 
+N이 4일 경우,
+ 
+![img](../assets/img/algo/2005(1).png)
+
 N을 입력 받아 크기 N인 파스칼의 삼각형을 출력하는 프로그램을 작성하시오.
 
 
-[제약 사항]
+**[제약 사항]**
 
 파스칼의 삼각형의 크기 N은 1 이상 10 이하의 정수이다. (1 ≤ N ≤ 10)
 
 
-[입력]
+**[입력]**
 
 가장 첫 줄에는 테스트 케이스의 개수 T가 주어지고, 그 아래로 각 테스트 케이스가 주어진다.
 
 각 테스트 케이스에는 N이 주어진다.
 
 
-[출력]
+**[출력]**
 
 각 줄은 '#t'로 시작하고, 다음 줄부터 파스칼의 삼각형을 출력한다.
 
@@ -41,6 +51,18 @@ N을 입력 받아 크기 N인 파스칼의 삼각형을 출력하는 프로그�
 
 (t는 테스트 케이스의 번호를 의미하며 1부터 시작한다.)
 
+```
+> 입력
+1
+4
+
+> 출력
+#1
+1
+1 1
+1 2 1
+1 3 3 1
+```
 
 ```java
 package lv2;
@@ -54,64 +76,64 @@ import java.util.Scanner;
  */
 
 public class N2005 {
-	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
-		int test = scan.nextInt();
-		for (int test_case = 1; test_case <= test; test_case++) { // test case 만큼 Loop
-			int line = scan.nextInt();
-			System.out.println("#" + test_case);
-			int size = 0;
-			// 사이즈 정해주기
-			for (int i=1; i<=line; i++) {
-				size += i;
-			}
-			int [] paskal = new int[size];
-			int count = 0;
-			// line 시작 자리 1로 초기화
-			for (int num_one = 0; num_one<paskal.length;) {
-				count++;
-				paskal[num_one] = 1;
-				num_one += count;
-			}
-			// line 끝 자리 1로 초기화
-			count = 2;
-			for (int num_one = 2; num_one<paskal.length;) {
-				count++;
-				paskal[num_one] = 1;
-				num_one += count;
-			}
-			count = 3;
-			int new_count = 3;
-			// 가운데 채우기
-			for (int num_one = 4; num_one<paskal.length;) {
-				int k = count;
-				do{
-					paskal[num_one] = paskal[num_one-new_count] + paskal[num_one-new_count+1];
-					num_one++;
-					k--;
-				}while(!(k == 2));
-				num_one = num_one+2;
-				if (num_one >= paskal.length) {
-					break;
-				}
-				paskal[num_one] = paskal[num_one-new_count] + paskal[num_one-new_count+1];
-				new_count++;
-				count++;
-			}
-			int line_count = 1;
-			int num_count = 1;
-			// 파스칼 삼각형 프린트 찍기
-			for (int i = 0; i<paskal.length; i++) {
-				System.out.print(paskal[i] + " ");
-				if (line_count == num_count) {
-					System.out.println();
-					line_count++;
-					num_count = 0;
-				}
-				num_count++;
-			}
-		}
-		scan.close();
-	}
+   public static void main(String[] args) {
+      Scanner scan = new Scanner(System.in);
+      int test = scan.nextInt();
+      for (int test_case = 1; test_case <= test; test_case++) { // test case 만큼 Loop
+         int line = scan.nextInt();
+         System.out.println("#" + test_case);
+         int size = 0;
+         // 사이즈 정해주기
+         for (int i=1; i<=line; i++) {
+            size += i;
+         }
+         int [] paskal = new int[size];
+         int count = 0;
+         // line 시작 자리 1로 초기화
+         for (int num_one = 0; num_one<paskal.length;) {
+            count++;
+	    paskal[num_one] = 1;
+	    num_one += count;
+         }
+         // line 끝 자리 1로 초기화
+         count = 2;
+         for (int num_one = 2; num_one<paskal.length;) {
+            count++;
+            paskal[num_one] = 1;
+	    num_one += count;
+         }
+         count = 3;
+         int new_count = 3;
+         // 가운데 채우기
+         for (int num_one = 4; num_one<paskal.length;) {
+            int k = count;
+            do{
+	       paskal[num_one] = paskal[num_one-new_count] + paskal[num_one-new_count+1];
+               num_one++;
+	       k--;
+            }while(!(k == 2));
+            num_one = num_one+2;
+            if (num_one >= paskal.length) {
+               break;
+            }
+            paskal[num_one] = paskal[num_one-new_count] + paskal[num_one-new_count+1];
+            new_count++;
+            count++;
+         }
+         int line_count = 1;
+         int num_count = 1;
+         // 파스칼 삼각형 프린트 찍기
+         for (int i = 0; i<paskal.length; i++) {
+            System.out.print(paskal[i] + " ");
+            if (line_count == num_count) {
+               System.out.println();
+               line_count++;
+               num_count = 0;
+            }
+            num_count++;
+         }
+      }
+      scan.close();
+   }
 }
 ```
