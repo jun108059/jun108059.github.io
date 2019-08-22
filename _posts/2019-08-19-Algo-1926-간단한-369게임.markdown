@@ -3,7 +3,7 @@ layout: post
 title:  "[알고리즘] 간단한 369게임"
 subtitle:   "369 게임을 프로그램으로 제작하라"
 categories: algorithm
-tags: SWExpertAcademy
+tags: SWexpertacademy algorithm
 ---
 
 ## 1926. 간단한 369게임
