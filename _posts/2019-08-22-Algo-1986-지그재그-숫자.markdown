@@ -3,8 +3,9 @@ layout: post
 title:  "[알고리즘] 지그재그 숫자"
 subtitle:   "1부터 N까지의 숫자에서 홀수는 더하고 짝수는 빼는 프로그램"
 categories: algorithm
-tags: SWExpertAcademy
+tags: SWexpertacademy algorithm
 ---
+![SWEA](https://img.shields.io/badge/SWEA-D2-blue?logo=Java)
 
 ## 1986. 지그재그 숫자
 
