@@ -3,7 +3,7 @@ layout: post
 title:  "[알고리즘] 파스칼의 삼각형"
 subtitle:   "파스칼의 삼각형 만드는 프로그램"
 categories: algorithm
-tags: SWExpertAcademy
+tags: SWexpertacademy algorithm
 ---
 
 ## 2005. 파스칼의 삼각형
