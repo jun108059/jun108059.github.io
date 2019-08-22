@@ -5,6 +5,7 @@ subtitle:   "단어가 들어갈 수 있는 자리의 수를 출력하는 프로
 categories: algorithm
 tags: SWExpertAcademy
 ---
+![SWEA](https://img.shields.io/badge/SWEA-D2-blue?logo=Java)
 
 ## 1979. 어디에 단어가 들어갈 수 있을까
 
