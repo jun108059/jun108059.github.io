@@ -3,8 +3,9 @@ layout: post
 title:  "[알고리즘] 초심자의 회문 검사"
 subtitle:   "단어를 입력 받아 회문인지 아닌지 검사하자"
 categories: algorithm
-tags: SWExpertAcademy
+tags: SWexpertacademy algorithm
 ---
+![SWEA](https://img.shields.io/badge/SWEA-D2-blue?logo=Java)
 
 ## 1989. 초심자의 회문 검사
 
