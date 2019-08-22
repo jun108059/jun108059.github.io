@@ -54,6 +54,7 @@ N은 1 이상 10 이하의 정수이다. (1 ≤ N ≤ 10)
 #2 -3
 ```
 
+```java
 import java.util.Scanner;
 
 /* 19.08.20
@@ -81,3 +82,4 @@ public class N1986 {
 		scan.close();
 	}
 }
+```
