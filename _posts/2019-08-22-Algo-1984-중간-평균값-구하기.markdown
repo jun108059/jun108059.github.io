@@ -47,7 +47,7 @@ tags: SWExpertAcademy
 #3 24
 ```
 
-```
+```java
 import java.util.Scanner;
 
 /* 19.08.20
