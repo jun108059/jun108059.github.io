@@ -3,7 +3,7 @@ layout: post
 title:  "[알고리즘] 패턴 마디의 길이"
 subtitle:   "369 게임을 프로그램으로 제작하라"
 categories: algorithm
-tags: SWExpertAcademy
+tags: SWexpertacademy algorithm
 ---
 
 ## 2007. 패턴 마디의 길이
