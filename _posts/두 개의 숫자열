@@ -1,0 +1,130 @@
+---
+layout: post
+title:  "[알고리즘] 두 개의 숫자열"
+subtitle:   "숫자 열 2개의 "
+categories: algorithm
+tags: SWexpertacademy algorithm
+---
+![SWEA](https://img.shields.io/badge/SWEA-D2-blue?logo=Java)
+
+## 1959. 두 개의 숫자열
+
+> 삼성 SW Expert Academy 알고리즘 문제풀기 [D2]    
+> (16:24~17:00) 36`m
+
+### 👨‍💻 설계
+```
+알고리즘 스터디에서 코드리뷰를 하다가 알게되었는데
+90도 180도 270도 모두 만들 필요 없이 90도만 계속 사용하면 쉽다.
+```
+N 개의 숫자로 구성된 숫자열 Ai (i=1~N) 와 M 개의 숫자로 구성된 숫자열 Bj (j=1~M) 가 `있다.
+
+아래는 N =3 인 Ai 와 M = 5 인 Bj 의 예이다.
+
+![img](../assets/img/algo/1959(1).PNG)
+
+Ai 나 Bj 를 자유롭게 움직여서 숫자들이 서로 마주보는 위치를 변경할 수 있다.
+
+단, 더 긴 쪽의 양끝을 벗어나서는 안 된다.
+ 
+![img](../assets/img/algo/1959(2).PNG)
+
+서로 마주보는 숫자들을 곱한 뒤 모두 더할 때 최댓값을 구하라.
+
+위 예제의 정답은 아래와 같이 30 이 된다.
+ 
+![img](../assets/img/algo/1959(3).PNG)
+
+**[제약 사항]**
+
+N 과 M은 3 이상 20 이하이다.
+
+
+**[입력]**
+
+가장 첫 줄에는 테스트 케이스의 개수 T가 주어지고, 그 아래로 각 테스트 케이스가 주어진다.
+
+각 테스트 케이스의 첫 번째 줄에 N 과 M 이 주어지고,
+
+두 번째 줄에는 Ai,
+
+세 번째 줄에는 Bj 가 주어진다.
+
+**[출력]**
+
+출력의 각 줄은 '#t'로 시작하고, 공백을 한 칸 둔 다음 정답을 출력한다.
+
+(t는 테스트 케이스의 번호를 의미하며 1부터 시작한다.)
+```
+> 입력
+10
+3 5
+1 5 3
+3 6 -7 5 4
+7 6
+6 0 5 5 -1 1 6
+-4 1 8 7 -9 3
+...
+
+> 출력
+#1 30
+#2 63
+...
+```
+
+```java
+import java.util.Scanner;
+/* 19.08.26
+ * SW Expert Academy
+ * [1959] 두 개의 숫자열
+ * 각각 N, M개의 숫자로 구성된 숫자열 2개
+ * 각 숫자 배열의 곱이 최대인 경우
+ */
+public class Solution {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int test = scan.nextInt();
+		for (int test_case = 1; test_case <= test; test_case++) { // test case 만큼 Loop
+			int a_size = scan.nextInt();
+			int b_size = scan.nextInt();
+			int sol = 0; // 정답
+			int sum = 0; // 중간 합
+			int sub_size = 0;
+			String move = "";
+			if (a_size < b_size) {
+				sub_size = b_size - a_size;
+				move = "first";
+			}else{
+				sub_size = a_size - b_size;
+				move = "second";
+			}
+			int[] a_num = new int[a_size];
+			int[] b_num = new int[b_size];
+			
+			// 배열 할당
+			for(int i = 0; i < a_size; i++) {
+				a_num[i] = scan.nextInt();
+			}
+			for(int i = 0; i < b_size; i++) {
+				b_num[i] = scan.nextInt();
+			}
+			for(int i = 0; i <= sub_size; i++) { // 시작점
+				sum = 0;
+				if (move == "first") { // 첫번째 숫자열 size가 작을경우
+					for(int k = 0; k < a_size; k++) {
+						sum += a_num[k] * b_num[i+k];
+					}
+				}
+				else if (move == "second") { // 두번째 숫자열 size가 작을경우
+					for(int k = 0; k < b_size; k++) {
+						sum += a_num[i+k] * b_num[k];
+					}
+				}
+				if(sol < sum) sol = sum; // 큰 값 넣기
+			}
+			System.out.println("#" + test_case + " " + sol);
+		}
+		scan.close();
+	}
+}
+```
