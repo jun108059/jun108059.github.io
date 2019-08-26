@@ -12,7 +12,7 @@ tags: SWexpertacademy algorithm
 > 삼성 SW Expert Academy 알고리즘 문제풀기 [D2]    
 > (16:24~17:00) 36`m
 
-N 개의 숫자로 구성된 숫자열 Ai (i=1~N) 와 M 개의 숫자로 구성된 숫자열 Bj (j=1~M) 가 `있다.
+N 개의 숫자로 구성된 숫자열 Ai (i=1,N) 와 M 개의 숫자로 구성된 숫자열 Bj (j=1,M) 가 있다.
 
 아래는 N =3 인 Ai 와 M = 5 인 Bj 의 예이다.
 
