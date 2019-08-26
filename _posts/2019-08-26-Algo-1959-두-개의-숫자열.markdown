@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "[알고리즘] 두 개의 숫자열"
-subtitle:   "숫자 열 2개의 "
+subtitle:   "숫자 열 2개 곱의 합 최댓값 출력"
 categories: algorithm
 tags: SWexpertacademy algorithm
 ---
@@ -12,11 +12,6 @@ tags: SWexpertacademy algorithm
 > 삼성 SW Expert Academy 알고리즘 문제풀기 [D2]    
 > (16:24~17:00) 36`m
 
-### 👨‍💻 설계
-```
-알고리즘 스터디에서 코드리뷰를 하다가 알게되었는데
-90도 180도 270도 모두 만들 필요 없이 90도만 계속 사용하면 쉽다.
-```
 N 개의 숫자로 구성된 숫자열 Ai (i=1~N) 와 M 개의 숫자로 구성된 숫자열 Bj (j=1~M) 가 `있다.
 
 아래는 N =3 인 Ai 와 M = 5 인 Bj 의 예이다.
