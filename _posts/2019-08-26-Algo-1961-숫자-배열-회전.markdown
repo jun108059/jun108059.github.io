@@ -1,0 +1,136 @@
+---
+layout: post
+title:  "[알고리즘] 숫자 배열 회전"
+subtitle:   "행렬이 주어질 때 시계방향으로 회전한 모양 출력"
+categories: algorithm
+tags: SWexpertacademy algorithm
+---
+![SWEA](https://img.shields.io/badge/SWEA-D2-blue?logo=Java)
+
+## 1961. 숫자 배열 회전
+
+> 삼성 SW Expert Academy 알고리즘 문제풀기 [D2]    
+> (15:01~15:51) 50`m
+
+N x N 행렬이 주어질 때,
+
+시계 방향으로 90도, 180도, 270도 회전한 모양을 출력하라.
+
+
+**[제약 사항]**
+
+N은 3 이상 7 이하이다.
+
+**[입력]**
+
+가장 첫 줄에는 테스트 케이스의 개수 T가 주어지고, 그 아래로 각 테스트 케이스가 주어진다.
+
+각 테스트 케이스의 첫 번째 줄에 N이 주어지고,
+
+다음 N 줄에는 N x N 행렬이 주어진다.
+
+**[출력]**
+
+출력의 첫 줄은 '#t'로 시작하고,
+
+다음 N줄에 걸쳐서 90도, 180도, 270도 회전한 모양을 출력한다.
+
+입력과는 달리 출력에서는 회전한 모양 사이에만 공백이 존재함에 유의하라.
+
+(t는 테스트 케이스의 번호를 의미하며 1부터 시작한다.)
+
+```
+> 입력
+10
+3
+1 2 3
+4 5 6
+7 8 9
+6
+6 9 4 7 0 5
+8 9 9 2 6 5
+6 8 5 4 9 8
+2 2 7 7 8 4
+7 5 1 9 7 9
+8 9 3 9 7 6
+...
+
+> 출력
+#1
+741 987 369
+852 654 258
+963 321 147
+#2
+872686 679398 558496
+952899 979157 069877
+317594 487722 724799
+997427 894586 495713
+778960 562998 998259
+694855 507496 686278
+...
+```
+
+```java
+import java.util.Scanner;
+/* 19.08.26
+ * SW Expert Academy
+ * [1961] 숫자 배열 회전
+ * N x N 행렬이 주어질 때,
+ * 시계 방향으로 90도, 180도, 270도 회전한 모양을 출력
+ */
+public class Solution {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int test = scan.nextInt();
+		for (int test_case = 1; test_case <= test; test_case++) { // test case 만큼 Loop
+			int size = scan.nextInt();
+			int[][] input_Arr = new int[size][size];
+			int[][] turn_90 = new int[size][size];
+			int[][] turn_180 = new int[size][size];
+			int[][] turn_270 = new int[size][size];
+			// 배열 할당
+			for(int i = 0; i < size; i++) {
+				for(int k = 0; k < size; k++) {
+					input_Arr[i][k] = scan.nextInt();
+				}
+			}
+			// 90도
+			for (int i = 0; i < turn_90.length; i++) {
+				for (int j = 0; j < turn_90.length; j++) {
+					turn_90[j][size-1-i] = input_Arr[i][j];
+				}
+			}
+			// 180도
+			for (int i = 0; i < turn_180.length; i++) {
+				for (int j = 0; j < turn_180.length; j++) {
+					turn_180[size-1-i][size-1-j] = input_Arr[i][j];
+				}
+			}
+			// 270도
+			for (int i = 0; i < turn_270.length; i++) {
+				for (int j = 0; j < turn_270.length; j++) {
+					turn_270[size-1-j][i] = input_Arr[i][j];
+				}
+			}
+			
+			System.out.println("#" + test_case);
+			for (int i = 0; i < size; i++) {
+				for (int j = 0; j < size; j++) {
+					System.out.print(turn_90[i][j]);
+				}
+				System.out.print(" ");
+				for (int j = 0; j < size; j++) {
+					System.out.print(turn_180[i][j]);
+				}
+				System.out.print(" ");
+				for (int j = 0; j < size; j++) {
+					System.out.print(turn_270[i][j]);
+				}
+				System.out.println();
+			}
+		}
+		scan.close();
+	}
+}
+
+```
