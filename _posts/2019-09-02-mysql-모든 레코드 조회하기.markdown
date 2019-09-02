@@ -40,5 +40,6 @@ SELECT * FROM ANIMAL_INS
 
 ``` 
 Programmers의 7daySQL 챌린지 문제입니다.
-본 문제는 Kaggle의 Austin Animal Center Shelter Intakes and Outcomes에서 제공하는 데이터를 사용하였으며 ODbL의 적용을 받습니다.
+본 문제는 Kaggle의 Austin Animal Center Shelter Intakes and Outcomes에서 제공하는 데이터를 
+사용하였으며 ODbL의 적용을 받습니다.
 ```
