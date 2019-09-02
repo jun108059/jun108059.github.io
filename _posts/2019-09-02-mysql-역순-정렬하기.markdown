@@ -5,7 +5,7 @@ subtitle:   "SELECT FROM OREDR 정렬을 이해해보자"
 categories: devlog
 tags: mysql
 ---
-![mysql](https://img.shields.io/badge/MySQL-DataBase-yellow?logo=MySQL)
+![mysql](https://img.shields.io/badge/MySQL-DataBase-yellow?logo=MySQL&logoColor=white&?logoWidth=40)
 
 # 역순 정렬하기
 
@@ -40,5 +40,6 @@ SELECT NAME, DATETIME FROM ANIMAL_INS ORDER BY ANIMAL_ID DESC;
 
 ``` 
 Programmers의 7daySQL 챌린지 문제입니다.
-본 문제는 Kaggle의 Austin Animal Center Shelter Intakes and Outcomes에서 제공하는 데이터를 사용하였으며 ODbL의 적용을 받습니다.
+본 문제는 Kaggle의 Austin Animal Center Shelter Intakes and Outcomes**에서 제공하는 데이터를 사용하였으며 
+ODbL의 적용을 받습니다.
 ```
