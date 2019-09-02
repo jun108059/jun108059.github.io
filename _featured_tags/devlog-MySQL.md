@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
-title: Vue
-slug: vue
+title: MySQL
+slug: mysql
 category: devlog
 menu: false
 order: 2
