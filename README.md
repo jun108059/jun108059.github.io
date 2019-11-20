@@ -9,21 +9,33 @@
 
 ## 👨‍💻Side Project
 
+- [ACS](https://github.com/hanium2019/hanium_2019) - AR 기반 실시간 화면 공유 회의 시스템
+
 - [IS_LTS](https://github.com/jun108059/IA_TeamProject.git) - 사용자 지향 IoT 쇼핑카트 프로젝트
 
 - [PyGame](https://github.com/jun108059/Pygame_2019.git) - Pygame 프로젝트
 
-- [한이음ICT공모전](https://www.youtube.com/watch?v=Ms2wOKiTN7E) - 드론 관련 프로젝트 입선
+- [한이음ICT공모전](https://www.youtube.com/watch?v=Ms2wOKiTN7E) - 사람 인식 드론 프로젝트
 
 
 ## 📖 Introduction
- History |경 력 및 수 상
+ History |경 력
 --------- | ---------
- 2019.03 ~          | 한이음 2019 ICT 공모전
- 2019.03 ~          | 삼성전자 대학생 나눔 봉사단 7기
- 2018.03 ~ 2018.11  | 한이음 2018 ICT 공모전 입상
+ 2019.11            | 제 13회 이공계 학술제 1위
+ 2019.09 ~          | DSC Korea HUFS Member
+ 2019.03 ~ 2019.11  | 한이음 2019 ICT 공모전 동상
+ 2019.03 ~ 2020.02  | 삼성전자 대학생 나눔 봉사단 7기
+ 2018.03 ~ 2018.11  | 한이음 2018 ICT 공모전 입선
  2018.03 ~          | 학과 공로장학생 서버관리자
  2014.03 ~          | 한국외국어대학교 정보통신공학과 입학
+
+ 수 상 | 내 용
+--------- | ---------
+한이음 2019 ICT 공모전 동상    | 한국정보산업연합회장상
+제 13회 이공계 학술제 종합 1위 | 한국외국어대학교총장상
+한이음 2018 ICT 공모전 입선    | 한국정보산업연합회장상
+ 
+
 
 
 ## 📂 Directory structure
